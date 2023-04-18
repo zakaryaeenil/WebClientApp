@@ -1,0 +1,43 @@
+import { Expediteur } from "./expediteur";
+import { Statut } from "./statut";
+import { Transporteur } from "./transporteur";
+import { CommandesVehicle } from "./commandesVehicle";
+import { Document } from "./document";
+import { ExtraCommande } from "./extraCommande";
+import { Facture } from "./facture";
+import { Offre } from "./offre";
+
+export interface Commande {
+    commandeId: number;
+    commandeRef: string;
+    titre: string;
+    note: string;
+    typeEmballage: string;
+    dePays: string;
+    apays: string;
+    deAdresse: string;
+    aadresse: string;
+    marchandisesDesc: string;
+    poidsBrut: number | null;
+    typeMarchandises: number | null;
+    debutChargement: Date;
+    finChargement: Date;
+    debutDeChargement: Date;
+    finDeChargement: Date;
+    trajet: number;
+    isActive: boolean;
+    isGenerated: boolean;
+    prix: number | null;
+    dateCreation: Date | null;
+    transporteurId: number | null;
+    expediteurId: number;
+    statutId: number;
+    expediteur: Expediteur;
+    statut: Statut;
+    transporteur: Transporteur;
+    commandesVehicles: CommandesVehicle[];
+    documents: Document[];
+    extraCommandes: ExtraCommande[];
+    factures: Facture[];
+    offres: Offre[];
+}
